@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-title: #000000;
+  --color-body: #1a1a1a;
+  --color-primary: #f1b44c;
+  --color-secondary: #000000;
+
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-body font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit text-title font-bold;
+  }
+}
