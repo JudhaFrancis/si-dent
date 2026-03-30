@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { ModalProvider } from "@/context/ModalContext";
+import BookingModal from "@/components/BookingModal";
+import ScrollToTop from "@/components/ScrollToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,9 +38,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ModalProvider>
+          <ScrollToTop />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <BookingModal />
+        </ModalProvider>
       </body>
     </html>
   );
