@@ -3,30 +3,40 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useModal } from "@/context/ModalContext";
 
 const serviceSubMenu = [
-  "Dental Implants",
-  "Invisalign Clear Aligners",
-  "Digital Smile Design (DSD)",
-  "Laser Dentistry",
-  "Root Canal Treatment",
-  "Teeth Whitening / Bleaching",
-  "Veneers & Smile Makeover",
-  "CAD-CAM Restorations",
-  "Inhouse Aligners & 3D Printing",
-  "Full Mouth Rehabilitation",
-  "Digital Dentures",
-  "Crown & Bridge",
-  "General & Preventive Dentistry",
-  "Anti-snoring Devices (Sleep Dentistry)",
+  { name: "Dental Implants", href: "/services/dental-implants" },
+  { name: "Invisalign Clear Aligners", href: "/services/invisalign" },
+  { name: "Digital Smile Design (DSD)", href: "/services/digital-smile-design" },
+  { name: "Laser Dentistry", href: "/services/laser-dentistry" },
+  { name: "Root Canal Treatment", href: "/services/root-canal-treatment" },
+  { name: "Teeth Whitening / Bleaching", href: "/services/teeth-whitening" },
+  { name: "Veneers & Smile Makeover", href: "/services/veneers-smile-makeover" },
+  { name: "CAD-CAM Restorations", href: "/services/cad-cam-restorations" },
+  { name: "Inhouse Aligners & 3D Printing", href: "/services/inhouse-aligners" },
+  { name: "Full Mouth Rehabilitation", href: "/services/full-mouth-rehabilitation" },
+  { name: "Digital Dentures", href: "/services/digital-dentures" },
+  { name: "Crown & Bridge", href: "/services/crown-bridge" },
+  { name: "General & Preventive Dentistry", href: "/services/general-dentistry" },
+  { name: "Anti-snoring Devices (Sleep Dentistry)", href: "/services/sleep-dentistry" },
 ];
 
-const navItems = ["Home", "About", "Services", "Our Doctors", "Case Gallery", "Contact"];
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "Our Doctors", href: "/our-doctors" },
+  { name: "Facilities", href: "/facilities" },
+  { name: "Case Gallery", href: "/case-gallery" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -63,6 +73,12 @@ export default function Header() {
       document.body.style.overflow = "";
       setMobileServicesOpen(false);
     }
+  };
+
+  const checkActive = (href: string) => {
+    if (href === "/" && pathname === "/") return true;
+    if (href !== "/" && href.startsWith("/") && pathname === href) return true;
+    return false;
   };
 
   return (
@@ -109,8 +125,8 @@ export default function Header() {
                 <div className="th-mobile-menu">
                   <ul className="space-y-1">
                     {navItems.map((item) => (
-                      <li key={item}>
-                        {item === "Services" ? (
+                      <li key={item.name}>
+                        {item.name === "Services" ? (
                           <>
                             <button
                               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -134,13 +150,13 @@ export default function Header() {
                                   className="overflow-hidden pl-4 border-l-2 border-primary/20 ml-2"
                                 >
                                   {serviceSubMenu.map((service) => (
-                                    <li key={service}>
+                                    <li key={service.name}>
                                       <Link
-                                        href={`#${service.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                                        href={service.href}
                                         className="block py-1.5 text-sm text-gray-500 hover:text-primary transition-colors font-outfit"
                                         onClick={toggleMenu}
                                       >
-                                        {service}
+                                        {service.name}
                                       </Link>
                                     </li>
                                   ))}
@@ -150,11 +166,13 @@ export default function Header() {
                           </>
                         ) : (
                           <Link
-                            href={item === "Home" ? "/" : `#${item.toLowerCase().replace(" ", "")}`}
-                            className="block text-lg font-medium text-title hover:text-primary transition-colors py-2"
+                            href={item.href}
+                            className={`block text-lg font-medium py-2 transition-colors ${
+                              checkActive(item.href) ? "text-primary" : "text-title hover:text-primary"
+                            }`}
                             onClick={toggleMenu}
                           >
-                            {item}
+                            {item.name}
                           </Link>
                         )}
                       </li>
@@ -192,6 +210,7 @@ export default function Header() {
                   height={48}
                   style={{ 
                     filter: isScrolled ? "brightness(0)" : "none",
+                    width: 'auto',
                   }}
                   className="h-10 lg:h-12 w-auto object-contain transition-all duration-300"
                 />
@@ -200,78 +219,79 @@ export default function Header() {
 
             {/* Main Navigation (Desktop) */}
             <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
-              {navItems.map((item, idx) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  {...(item === "Services" ? { ref: dropdownRef } : {})}
-                  className="relative"
-                >
-                  {item === "Services" ? (
-                    /* Services with dropdown */
-                    <div
-                      onMouseEnter={() => setIsServicesOpen(true)}
-                      onMouseLeave={() => setIsServicesOpen(false)}
-                    >
-                      <button
-                        className={`nav-link font-bold font-outfit uppercase tracking-widest text-xs transition-all duration-300 relative group py-2 flex items-center gap-1 ${
-                          !isScrolled ? "text-white" : "text-title"
+              {navItems.map((item, idx) => {
+                const isActive = checkActive(item.href);
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    {...(item.name === "Services" ? { ref: dropdownRef } : {})}
+                    className="relative"
+                  >
+                    {item.name === "Services" ? (
+                      <div
+                        onMouseEnter={() => setIsServicesOpen(true)}
+                        onMouseLeave={() => setIsServicesOpen(false)}
+                      >
+                        <button
+                          className={`nav-link font-bold font-outfit uppercase tracking-widest text-xs transition-all duration-300 relative group py-2 flex items-center gap-1 ${
+                            !isScrolled ? "text-white" : "text-title"
+                          }`}
+                        >
+                          Services
+                          <svg
+                            className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`}
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                          <span className="absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full w-0"></span>
+                        </button>
+
+                        <AnimatePresence>
+                          {isServicesOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: 8 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                            >
+                              <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-4 px-2 w-[680px]">
+                                <div className="grid grid-cols-3 gap-x-2">
+                                  {serviceSubMenu.map((service, i) => (
+                                    <Link
+                                      key={i}
+                                      href={service.href}
+                                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-primary/5 transition-all font-outfit rounded-lg"
+                                    >
+                                      {service.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`nav-link font-bold font-outfit uppercase tracking-widest text-xs transition-all duration-300 relative group py-2 ${
+                          isActive 
+                            ? "text-primary" 
+                            : (!isScrolled ? "text-white" : "text-title")
                         }`}
                       >
-                        Services
-                        <svg
-                          className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`}
-                          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
-                        <span className="absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full w-0"></span>
-                      </button>
-
-                      <AnimatePresence>
-                        {isServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 8 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
-                          >
-                            <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-4 px-2 w-[680px]">
-                              <div className="grid grid-cols-3 gap-x-2">
-                                {serviceSubMenu.map((service, i) => (
-                                  <Link
-                                    key={i}
-                                    href={`#${service.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-primary/5 transition-all font-outfit rounded-lg"
-                                  >
-                                    {service}
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    /* Regular nav items */
-                    <Link
-                      href={item === "Home" ? "/" : `#${item.toLowerCase().replace(" ", "")}`}
-                      className={`nav-link font-bold font-outfit uppercase tracking-widest text-xs transition-all duration-300 relative group py-2 ${
-                        !isScrolled 
-                          ? (item === "Home" ? "text-primary" : "text-white") 
-                          : (item === "Home" ? "text-primary" : "text-title")
-                      }`}
-                    >
-                      {item}
-                      <span className="absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full w-0"></span>
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
+                        {item.name}
+                        <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${isActive ? "w-full" : "w-0"}`}></span>
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
             </nav>
 
             {/* Header Actions */}
@@ -288,7 +308,7 @@ export default function Header() {
                     : "bg-white text-title shadow-xl hover:bg-primary"
                 }`}
               >
-                Book Appointment <i className="fa-regular fa-circle-right ml-2 text-sm"></i>
+                Book Appointment
               </motion.button>
               
               {/* Mobile Toggle */}

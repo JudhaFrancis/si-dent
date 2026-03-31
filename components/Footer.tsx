@@ -7,20 +7,20 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const allServices = [
-  "Dental Implants",
-  "Invisalign Clear Aligners",
-  "Digital Smile Design (DSD)",
-  "Laser Dentistry",
-  "Root Canal Treatment",
-  "Teeth Whitening / Bleaching",
-  "Veneers & Smile Makeover",
-  "CAD-CAM Restorations",
-  "Inhouse Aligners & 3D Printing",
-  "Full Mouth Rehabilitation",
-  "Digital Dentures",
-  "Crown & Bridge",
-  "General & Preventive Dentistry",
-  "Anti-snoring Devices (Sleep Dentistry)",
+  { name: "Dental Implants", href: "/services/dental-implants" },
+  { name: "Invisalign Clear Aligners", href: "/services/invisalign" },
+  { name: "Digital Smile Design (DSD)", href: "/services/digital-smile-design" },
+  { name: "Laser Dentistry", href: "/services/laser-dentistry" },
+  { name: "Root Canal Treatment", href: "/services/root-canal-treatment" },
+  { name: "Teeth Whitening / Bleaching", href: "/services/teeth-whitening" },
+  { name: "Veneers & Smile Makeover", href: "/services/veneers-smile-makeover" },
+  { name: "CAD-CAM Restorations", href: "/services/cad-cam-restorations" },
+  { name: "Inhouse Aligners & 3D Printing", href: "/services/inhouse-aligners" },
+  { name: "Full Mouth Rehabilitation", href: "/services/full-mouth-rehabilitation" },
+  { name: "Digital Dentures", href: "/services/digital-dentures" },
+  { name: "Crown & Bridge", href: "/services/crown-bridge" },
+  { name: "General & Preventive Dentistry", href: "/services/general-dentistry" },
+  { name: "Anti-snoring Devices (Sleep Dentistry)", href: "/services/sleep-dentistry" },
 ];
 
 const fadeInUp = {
@@ -57,9 +57,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-title text-white pt-24 pb-12 overflow-hidden font-body">
+    <footer className="relative bg-title text-white pt-24 pb-6 overflow-hidden font-body">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_2.2fr_1fr] gap-12 lg:gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_2.2fr_1fr] gap-12 lg:gap-16 mb-12">
           {/* Column 1: Brand */}
           <motion.div
             className="space-y-8"
@@ -75,6 +75,7 @@ export default function Footer() {
                 width={150}
                 height={50}
                 className="h-12 w-auto"
+                style={{ width: 'auto' }}
               />
             </Link>
             <p className="text-gray-400 leading-relaxed text-base max-w-xs">
@@ -110,12 +111,12 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
               {allServices.map(service => (
                 <Link
-                  key={service}
-                  href={`#${service.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  key={service.name}
+                  href={service.href}
                   className="text-gray-400 hover:text-primary transition-colors cursor-pointer flex items-center gap-2 group text-sm"
                 >
                   <span className="w-1.5 h-1.5 flex-shrink-0 bg-primary/40 rounded-full group-hover:w-3 group-hover:bg-primary transition-all"></span>
-                  {service}
+                  {service.name}
                 </Link>
               ))}
             </div>
@@ -180,7 +181,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <motion.div
-          className="border-t border-white/5 pt-10"
+          className="border-t border-white/5 pt-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -218,12 +219,12 @@ export default function Footer() {
         className="fixed bottom-8 right-8 z-[100]"
       >
         <motion.button
-          whileHover={{ y: -5, backgroundColor: "#00a8cc" }}
+          whileHover={{ y: -5, scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white shadow-2xl border border-white/10"
+          className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-title shadow-2xl border border-primary/20 transition-all hover:shadow-primary/20"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7"/></svg>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7"/></svg>
         </motion.button>
       </motion.div>
     </footer>

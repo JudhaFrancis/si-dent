@@ -13,8 +13,8 @@ export default function Home() {
       <About />
       <PartnerSlider />
       <DoctorProfile />
-      <Reviews />
       <Expertise />
+      <Reviews />
     </div>
   );
 }
