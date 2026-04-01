@@ -7,8 +7,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const service = services[slug];
+
+  if (!service) {
+    return {
+      title: "Service Not Found",
+    };
+  }
+
+  return {
+    title: `${service.title} in Nagercoil`,
+    description: service.content[0].substring(0, 160) + "...",
   };
 }
 

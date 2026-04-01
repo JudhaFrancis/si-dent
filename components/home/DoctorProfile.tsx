@@ -71,7 +71,7 @@ export default function DoctorProfile() {
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl max-w-[480px] mx-auto lg:mx-0">
               <Image
                 src="/assets/img/home/drjosphine.jpg"
-                alt="Prof. Dr. S.I. Joephin Soundar"
+                alt="Prof. Dr. S.I. Joephin Soundar - Best Implantologist and Digital Dentist in Nagercoil"
                 width={600}
                 height={750}
                 className="w-full h-[540px] object-cover transition-transform duration-700 group-hover:scale-105"

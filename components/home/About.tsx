@@ -54,7 +54,7 @@ export default function About() {
               >
                 <Image
                   src="/assets/img/home/about-main.jpg"
-                  alt="SI-DENT Clinic Stairs"
+                  alt="Modern SI-DENT Dental Clinic Reception and Facilities in Nagercoil"
                   width={500}
                   height={650}
                   className="w-full h-full object-cover"

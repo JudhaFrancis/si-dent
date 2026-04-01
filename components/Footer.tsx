@@ -84,15 +84,15 @@ export default function Footer() {
             <div className="flex gap-5">
               {/* Facebook */}
               <motion.a href="https://www.facebook.com/sident/" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5, scale: 1.1 }} className="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-white transition-all duration-300 border border-white/10">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" /></svg>
               </motion.a>
               {/* Instagram */}
               <motion.a href="https://www.instagram.com/joephinsoundar" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5, scale: 1.1 }} className="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-white transition-all duration-300 border border-white/10">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" /></svg>
               </motion.a>
               {/* YouTube */}
               <motion.a href="https://www.youtube.com/channel/UCnHJYNaP7oqerPYIZSmOwAA" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5, scale: 1.1 }} className="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-white transition-all duration-300 border border-white/10">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z" /></svg>
               </motion.a>
             </div>
           </motion.div>
@@ -135,46 +135,46 @@ export default function Footer() {
             </h3>
             <div className="space-y-6">
               {/* Location */}
-              <motion.a 
+              <motion.a
                 href="https://maps.google.com/?q=SI-DENT+Dental+Clinic+120+Rajakkamangalam+Rd+Thalavaipuram+Ponappanadar+Colony+Punnai+Nagar+Nagercoil+Tamil+Nadu+629004"
                 target="_blank"
                 rel="noopener noreferrer"
-                variants={fadeInUp} 
+                variants={fadeInUp}
                 className="flex items-start gap-4 group cursor-pointer"
               >
                 <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary text-lg group-hover:bg-primary group-hover:text-white transition-all">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" /></svg>
                 </div>
                 <p className="text-gray-400 mt-1 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
                   120, Rajakkamangalam Rd, Thalavaipuram, Ponappanadar Colony, Punnai Nagar, Nagercoil, Tamil Nadu 629004
                 </p>
               </motion.a>
               {/* Email */}
-              <motion.a 
-                href="mailto:joephinsoundar@gmail.com"
-                variants={fadeInUp} 
+              <motion.a
+                href="mailto:sidentdentalclinic@gmail.com"
+                variants={fadeInUp}
                 className="flex items-start gap-4 group cursor-pointer"
               >
                 <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary text-lg group-hover:bg-primary group-hover:text-white transition-all">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" /></svg>
                 </div>
                 <p className="text-gray-400 mt-1 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
-                  joephinsoundar@gmail.com
+                  sidentdentalclinic@gmail.com
                 </p>
               </motion.a>
               {/* Phone */}
-              <motion.a 
-                href="tel:+917708833633"
-                variants={fadeInUp} 
-                className="flex items-start gap-4 group cursor-pointer"
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-start gap-4 group"
               >
                 <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary text-lg group-hover:bg-primary group-hover:text-white transition-all">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1.003 1.003 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1.003 1.003 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z" /></svg>
                 </div>
-                <p className="text-gray-400 mt-1 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
-                  +91 77088 33633
-                </p>
-              </motion.a>
+                <div className="flex flex-col text-gray-400 text-sm leading-relaxed">
+                  <a href="tel:+917708833633" className="hover:text-primary transition-colors whitespace-nowrap">+91 77088 33633</a>
+                  <a href="tel:04652265633" className="hover:text-primary transition-colors whitespace-nowrap">04652 265633</a>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -224,7 +224,7 @@ export default function Footer() {
           onClick={scrollToTop}
           className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-title shadow-2xl border border-primary/20 transition-all hover:shadow-primary/20"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7"/></svg>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" /></svg>
         </motion.button>
       </motion.div>
     </footer>

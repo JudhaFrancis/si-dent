@@ -13,14 +13,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #f1b44c;
+  --color-title: #000000;
+  --color-body: #1a1a1a;
 }
 
 @layer base {
   body {
     @apply bg-white text-body font-inter;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-outfit text-title font-bold;
   }
 }

@@ -22,18 +22,23 @@ const contactDetails = [
       </svg>
     ),
     title: "Email Address",
-    content: "joephinsoundar@gmail.com",
-    link: "mailto:joephinsoundar@gmail.com",
+    content: "sidentdentalclinic@gmail.com",
+    link: "mailto:sidentdentalclinic@gmail.com",
   },
   {
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
+      <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary text-lg group-hover:bg-primary group-hover:text-white transition-all">
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1.003 1.003 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z" /></svg>
+      </div>
     ),
     title: "Phone Number",
-    content: "+91 77088 33633",
-    link: "tel:+917708833633",
+    content: (
+      <div className="flex flex-col text-gray-400 text-sm leading-relaxed">
+        <a href="tel:+917708833633" className="hover:text-primary transition-colors whitespace-nowrap">+91 77088 33633</a>
+        <a href="tel:04652265633" className="hover:text-primary transition-colors whitespace-nowrap">04652 265633</a>
+      </div>
+    ),
+    link: "tel:+917708833633", // Primary link
   },
 ];
 
@@ -65,31 +70,51 @@ export default function ContactDetails() {
         Contact <span className="text-primary">Details</span>
       </h3>
       <div className="space-y-6 flex-grow">
-        {contactDetails.map((detail, idx) => (
-          <motion.a
-            key={idx}
-            href={detail.link}
-            target={detail.link.startsWith("http") ? "_blank" : undefined}
-            rel="noopener noreferrer"
-            className="flex items-start gap-5 p-4 rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all duration-300 group cursor-pointer"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-          >
-            <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-              {detail.icon}
-            </div>
-            <div>
-              <h4 className="text-xs font-black text-title uppercase tracking-widest mb-1 font-outfit">
-                {detail.title}
-              </h4>
-              <p className="text-gray-500 text-sm leading-relaxed group-hover:text-title transition-colors font-outfit font-medium">
-                {detail.content}
-              </p>
-            </div>
-          </motion.a>
-        ))}
+        {contactDetails.map((detail, idx) => {
+          const isPhone = detail.title === "Phone Number";
+          
+          const CardContent = (
+            <>
+              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                {detail.icon}
+              </div>
+              <div className="flex-grow">
+                <h4 className="text-[10px] font-black text-title uppercase tracking-[0.2em] mb-1.5 font-outfit opacity-80">
+                  {detail.title}
+                </h4>
+                <div className="text-gray-600 text-sm leading-tight transition-colors font-outfit font-bold">
+                  {detail.content}
+                </div>
+              </div>
+            </>
+          );
+
+          return (
+            <motion.div
+              key={idx}
+              className="p-4 rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all duration-300 group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              {isPhone ? (
+                <div className="flex items-start gap-5">
+                  {CardContent}
+                </div>
+              ) : (
+                <a 
+                  href={detail.link} 
+                  target={detail.link.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-5"
+                >
+                  {CardContent}
+                </a>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="mt-10 pt-10 border-t border-gray-100">
@@ -104,13 +129,13 @@ export default function ContactDetails() {
               className={`w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-50 text-title transition-all duration-500 hover:text-white hover:-translate-y-2 shadow-sm ${social.color}`}
             >
               {social.name === "Facebook" && (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" /></svg>
               )}
               {social.name === "Instagram" && (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" /></svg>
               )}
               {social.name === "YouTube" && (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z" /></svg>
               )}
             </a>
           ))}
