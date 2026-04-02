@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { services } from "@/constants/services";
 import GlobalHero from "@/components/GlobalHero";
 import ServiceDetail from "@/components/services/ServiceDetail";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 interface PageProps {
   params: Promise<{

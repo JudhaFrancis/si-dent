@@ -1,4 +1,19 @@
 RewriteEngine On
+RewriteBase /
+
+# 1. Directly serve Next.js static assets (fastest)
+# Requested: /_next/static/..., Found: /.next/static/...
+RewriteRule ^_next/static/(.*)$ .next/static/$1 [L]
+
+# 2. Directly serve public assets (Images, icons, etc.)
+RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
+RewriteRule ^(.*)$ public/$1 [L]
+
+# 3. Aggressive root proxying (Bypasses directory index)
 RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+RewriteRule ^/$ http://127.0.0.1:3000/ [P,L]
+
+# 4. Proxy everything else to the Next.js server
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
