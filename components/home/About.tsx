@@ -1,17 +1,11 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function About() {
   const aboutRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: aboutRef,
-    offset: ["start end", "end start"]
-  });
-
-  const yParallax = useTransform(scrollYProgress, [0, 1], [50, -100]);
 
   return (
     <section ref={aboutRef} className="py-16 bg-white overflow-hidden">

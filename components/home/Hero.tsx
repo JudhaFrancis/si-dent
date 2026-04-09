@@ -46,13 +46,13 @@ const HERO_SLIDES = [
 ];
 
 export default function Hero() {
-  let openBookingModal: any = null;
+  let openBookingModal: (() => void) | null = null;
 
   //  SAFE MODAL (prevents crash)
   try {
     const modal = useModal();
-    openBookingModal = modal?.openBookingModal;
-  } catch (e) {
+    openBookingModal = modal?.openBookingModal || null;
+  } catch {
     console.warn("Modal not available");
   }
 
@@ -61,10 +61,6 @@ export default function Hero() {
   const nextSlide = () =>
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
 
-  const prevSlide = () =>
-    setCurrentSlide(
-      (prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length
-    );
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 8000);

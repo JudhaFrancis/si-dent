@@ -27,7 +27,7 @@ export default function CaseGalleryClient({ cases, posters }: { cases: string[],
             {["cases", "posters"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab as any)}
+                onClick={() => setActiveTab(tab as "cases" | "posters")}
                 className={`relative z-10 px-6 py-2.5 rounded-full font-bold text-[11px] tracking-wider uppercase transition-colors duration-300 border-2 ${activeTab === tab ? "text-white border-transparent" : "text-gray-500 hover:text-title border-transparent"}`}
               >
                 {tab === "cases" ? "Clinical Cases" : "Educational Posters"}

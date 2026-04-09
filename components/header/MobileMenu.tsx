@@ -18,7 +18,6 @@ interface MobileMenuProps {
 export default function MobileMenu({
   isOpen,
   onClose,
-  pathname,
   checkActive,
   mobileServicesOpen,
   setMobileServicesOpen,

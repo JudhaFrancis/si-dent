@@ -29,7 +29,7 @@ export default function DesktopNav({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            {...(item.name === "Services" ? { ref: dropdownRef as any } : {})}
+            {...(item.name === "Services" ? { ref: dropdownRef as React.Ref<HTMLDivElement> } : {})}
             className="relative"
           >
             {item.name === "Services" ? (

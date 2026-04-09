@@ -215,7 +215,7 @@ export default function BookingModal() {
             </div>
             <div>
               <p className="font-bold text-sm">Booking Sent Successfully!</p>
-              <p className="text-gray-500 text-xs">We'll contact you within 24 hours.</p>
+              <p className="text-gray-500 text-xs">We&apos;ll contact you within 24 hours.</p>
             </div>
           </motion.div>
         )}

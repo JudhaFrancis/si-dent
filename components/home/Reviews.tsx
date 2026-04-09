@@ -134,7 +134,7 @@ export default function Reviews() {
 
                     {/* Text */}
                     <blockquote className="text-base sm:text-lg font-bold text-title leading-relaxed italic mb-8 font-outfit px-2">
-                      "{testimonials[index].text}"
+                      &quot;{testimonials[index].text}&quot;
                     </blockquote>
 
                     {/* Author info */}
