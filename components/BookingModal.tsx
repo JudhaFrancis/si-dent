@@ -51,18 +51,35 @@ export default function BookingModal() {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setShowToast(true);
-    setFormData({ name: "", mobile: "", email: "", message: "" });
-    
-    // Close modal after showing toast
-    setTimeout(() => {
-      setShowToast(false);
-      closeBookingModal();
-    }, 3000);
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status === "success") {
+        setShowToast(true);
+        setFormData({ name: "", mobile: "", email: "", message: "" });
+        
+        // Close modal after showing toast
+        setTimeout(() => {
+          setShowToast(false);
+          closeBookingModal();
+        }, 3000);
+      } else {
+        alert(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Booking error:", error);
+      alert("Failed to send booking. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
