@@ -46,15 +46,8 @@ const HERO_SLIDES = [
 ];
 
 export default function Hero() {
-  let openBookingModal: (() => void) | null = null;
-
-  //  SAFE MODAL (prevents crash)
-  try {
-    const modal = useModal();
-    openBookingModal = modal?.openBookingModal || null;
-  } catch {
-    console.warn("Modal not available");
-  }
+  const modal = useModal();
+  const openBookingModal = modal?.openBookingModal || null;
 
   const [currentSlide, setCurrentSlide] = useState(0);
 

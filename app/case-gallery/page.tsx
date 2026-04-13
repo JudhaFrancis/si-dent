@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function CaseGalleryPage() {
   const cases = [
-    "case-1 .jpg", "case-10 .jpg", "case-11 .jpg", "case-12.jpg", "case-13.jpg",
+    "case-1.jpg", "case-10.jpg", "case-11.jpg", "case-12.jpg", "case-13.jpg",
     "case-14.jpg", "case-15.jpg", "case-16.jpg", "case-17.jpg", "case-18.jpg",
-    "case-19.jpg", "case-2 .jpg", "case-20.jpg", "case-3 .jpg", "case-4 .jpg",
-    "case-5 .jpg", "case-6 .jpg", "case-7 .jpg", "case-8 .jpg", "case-9 .jpg"
+    "case-19.jpg", "case-2.jpg", "case-20.jpg", "case-3.jpg", "case-4.jpg",
+    "case-5.jpg", "case-6.jpg", "case-7.jpg", "case-8.jpg", "case-9.jpg"
   ];
 
   const posters = [
@@ -44,15 +44,15 @@ export default function CaseGalleryPage() {
       <div className="absolute top-[20%] -left-64 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-[30%] -right-64 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <GlobalHero 
+      <GlobalHero
         span="Our Success Stories"
         title={<>Case <span className="text-primary italic">Gallery</span></>}
         subtitle="Explore our portfolio of transformed smiles and informative dental care posters."
         breadcrumb={[{ label: "Case Gallery", href: "/case-gallery" }]}
       />
-      
+
       <CaseGalleryClient cases={cases} posters={posters} />
-      
+
       {/* Social Links Section */}
       {/* Social Links Section */}
       <section className="py-24 bg-gray-50 border-t border-gray-100 relative overflow-hidden">
@@ -61,33 +61,33 @@ export default function CaseGalleryPage() {
         <div className="absolute right-0 bottom-0 w-64 h-64 bg-primary/10 rounded-tl-full blur-2xl pointer-events-none"></div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
-            <h3 className="text-3xl md:text-5xl font-black text-title font-outfit uppercase mb-4 tracking-tight">
-                Discover More on Our <span className="text-primary italic font-medium lowercase">Socials</span>
-            </h3>
-            <p className="text-gray-500 mb-12 text-lg font-medium">Follow us for real-time updates, patient stories, and dental tips.</p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-               <a href="https://www.instagram.com/joephinsoundar/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
-                  <div className="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <i className="fa-brands fa-instagram text-sm text-pink-500"></i>
-                  </div>
-                  <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">Instagram</span>
-               </a>
-               
-               <a href="https://www.facebook.com/sident/photos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
-                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <i className="fa-brands fa-facebook-f text-sm text-blue-600"></i>
-                  </div>
-                  <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">Facebook</span>
-               </a>
-               
-               <a href="https://www.youtube.com/@sidentdentalclinic3624/videos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
-                  <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <i className="fa-brands fa-youtube text-sm text-red-600"></i>
-                  </div>
-                  <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">YouTube</span>
-               </a>
-            </div>
+          <h3 className="text-3xl md:text-5xl font-black text-title font-outfit uppercase mb-4 tracking-tight">
+            Discover More on Our <span className="text-primary italic font-medium lowercase">Socials</span>
+          </h3>
+          <p className="text-gray-500 mb-12 text-lg font-medium">Follow us for real-time updates, patient stories, and dental tips.</p>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://www.instagram.com/joephinsoundar/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
+              <div className="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <i className="fa-brands fa-instagram text-sm text-pink-500"></i>
+              </div>
+              <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">Instagram</span>
+            </a>
+
+            <a href="https://www.facebook.com/sident/photos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
+              <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <i className="fa-brands fa-facebook-f text-sm text-blue-600"></i>
+              </div>
+              <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">Facebook</span>
+            </a>
+
+            <a href="https://www.youtube.com/@sidentdentalclinic3624/videos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-md border border-gray-100 transition-all duration-300 group">
+              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <i className="fa-brands fa-youtube text-sm text-red-600"></i>
+              </div>
+              <span className="font-bold text-title font-outfit uppercase tracking-wider text-xs pr-2">YouTube</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>
