@@ -191,7 +191,7 @@ export default function OurDoctorsPage() {
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <div className="bg-[#171717] px-8 py-10 md:px-16 md:py-12 rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative overflow-hidden">
             <h3 className="text-[17px] md:text-lg font-medium text-white/95 font-outfit leading-relaxed italic">
-              "Our philosophy is to combine advanced digital technology with profound clinical expertise, ensuring every patient receives precisely tailored, painless, and world-class dental care."
+              &quot;Our philosophy is to combine advanced digital technology with profound clinical expertise, ensuring every patient receives precisely tailored, painless, and world-class dental care.&quot;
             </h3>
           </div>
         </div>
